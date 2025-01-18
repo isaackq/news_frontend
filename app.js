@@ -8,11 +8,6 @@ const { withSessionHandler } = require("./middlewares/wIthSessionHandller");
 
 const app = express();
 
-// app.use(
-//   session({
-//     secret: "node",
-//   })
-// );
 app.use(
   session({
     secret: "node",
