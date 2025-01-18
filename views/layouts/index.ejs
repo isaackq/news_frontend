@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= locals.titel %></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/modern-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<%- include('../components/navbar') %>
+
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active" style="background-image: url('/assets/img/1.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>news title can be here</h3>
+                    <p>This is a description for the first slide of news title.</p>
+                </div>
+            </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('/assets/img/22.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Second title can be here</h3>
+                    <p>This is a description for the second slide.</p>
+                </div>
+            </div>
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('/assets/img/1.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Third title can be here</h3>
+                    <p>This is a description for the third slide  of news title.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</header>
+
+<!-- Page Content -->
+
+
+ 
+ 
+   
+    
+    <section>
+        <div class="container">
+            
+        <h3 class="my-4">last news</h3>
+        
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            
+            <% if(locals.message) { %> 
+                <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h5><i class="icon fas fa-check"></i> Alert!</h5>
+                  <!-- <ul>
+                  <% for(error of locals.message) { %> عليهم تعليق 
+                  <li><%=error %></li>
+                    <% }%>
+                  </ul> -->
+                  <%=locals.message %>
+                </div>
+                <% }%> 
+            
+            <div class="col-lg-4 mb-4">
+                        
+                <div class="card h-100">
+                    <h4 class="card-header"><%= localNews[0].news.slice(-1)[0].title %></h4>
+                    <div class="card-body">
+                        <p class="card-text"><%= localNews[0].news.slice(-1)[0].SideWidget %></p>
+                        </div>
+                        <div class="card-footer">
+
+                        <form action="/news/<%= localNews[0].news.slice(-1)[0].id %>" method="get" >
+                            <input type="hidden" name="" value="" >
+                        <button  class="btn btn-primary">Learn More</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                        
+                <div class="card h-100">
+                    <h4 class="card-header"><%= sportsNews[0].news.slice(-1)[0].title %></h4>
+                    <div class="card-body">
+                        <p class="card-text"><%= sportsNews[0].news.slice(-1)[0].SideWidget %></p>
+                        </div>
+                        <div class="card-footer">                
+                            <form action="/news/<%= sportsNews[0].news.slice(-1)[0].id %>" method="get" >
+                                <input type="hidden" name="" value="" >
+                            <button  class="btn btn-primary">Learn More</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                        
+                <div class="card h-100">
+                    <h4 class="card-header"><%= internationalNews[0].news.slice(-1)[0].title %></h4>
+                    <div class="card-body">
+                        <p class="card-text"><%= internationalNews[0].news.slice(-1)[0].SideWidget %></p>
+                        </div>
+                        <div class="card-footer">
+                            <form action="/news/<%= internationalNews[0].news.slice(-1)[0].id %>" method="get" >
+                                <input type="hidden" name="" value="" >
+                            <button  class="btn btn-primary">Learn More</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+
+
+<section class="gray-sec">
+    <div class="container">
+        <!-- category Section -->
+        <h3 class="my-4">local news</h3>
+
+        <div class="row">
+            <% for( data of  localNews[0].news.slice(-3)) { %>
+                <div class="col-lg-4 col-sm-6 portfolio-item">
+                    <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="/assets/img/1.jpg" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#"><%= data.title %></a>
+                        </h4>
+                        <p class="card-text"><%= data.Content %></p>
+                        <!-- المفروض ديسكريبشن بدل كونتن عشان نحطو في البريف  -->
+                    </div>
+                    <div class="card-footer">
+                        <form action="/news/<%= data.id %>" method="get" >
+                            <input type="hidden" name="" value="" >
+                            <button  class="btn btn-primary">Learn More</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            
+        </div>
+        <script>
+            function renderPage(i) {
+                // Create a hidden form
+                var form = document.createElement("form");
+                form.setAttribute("method", "get"); // Use POST method
+                form.setAttribute("action", "/category/"+i); // Specify the route to handle the rendering
+        
+                // Add any data you want to send as POST parameters
+                // For example, you can include a CSRF token or other data here
+        
+                // Append the form to the document and submit it
+                document.body.appendChild(form);
+                form.submit();
+            }
+            </script>
+        <!-- <% console.log(localNews[0].id); %> -->
+        <!-- ايا اشي بيجي من الكونترولر لازم يتم استقبالو في اقواس اي جي اس حتى لو كان جوا سكربت  -->
+        <div align="center"> <a href="#" class="btn btn-success"onclick="renderPage(<%= localNews[0].id %>)" >more news</a></div>
+    </div>
+</section>
+
+
+<section >
+    <div class="container">
+
+        <h3 class="my-4">sports news</h3>
+        <div class="row">
+            <% for( data of  sportsNews[0].news.slice(-4)) { %>
+
+            <div class="col-lg-3  portfolio-item">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="/assets/img/s4.jpg" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#"><%= data.title %></a>
+                        </h4>
+                        <p class="card-text"><%= data.Content %></p>
+                    </div>
+                    <div class="card-footer">
+                        <form action="/news/<%= data.id %>" method="get" >
+                            <input type="hidden" name="" value="" >
+                        <button  class="btn btn-primary">Learn More</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <% } %>
+            
+
+        </div>
+        <!-- /.row -->
+        <div align="center"><a href="#" class="btn btn-success"onclick="renderPage(<%= sportsNews[0].id %>)">more news</a></div>
+        <br>
+        <br>
+    </div>
+</section>
+
+<section class="gray-sec">
+    <div class="container">
+
+        <!-- category Section -->
+        <h3 class="my-4">International news</h3>
+
+        <div class="row">
+            <% for( data of  internationalNews[0].news.slice(-3)) { %>
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="/assets/img/1.jpg" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#"><%= data.title %></a>
+                        </h4>
+                        <p class="card-text"><%= data.Content %></p>
+                    </div>
+                    <div class="card-footer">
+                        <form action="/news/<%= data.id %>" method="get" >
+                            <input type="hidden" name="" value="" >
+                        <button  class="btn btn-primary">Learn More</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+
+        
+        <div align="center"><a  href="#" class="btn btn-success"onclick="renderPage(<%= internationalNews[0].id %>)">more news</a></div>
+    </div>
+</section>
+
+
+
+
+<section>
+    <div class="container">
+        <!--  Section -->
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>main news title</h3>
+                <p>The Modern Business template by Start Bootstrap includes:</p>
+                <ul>
+                    <li>
+                        <strong>Bootstrap v4</strong>
+                    </li>
+                    <li>jQuery</li>
+                    <li>Font Awesome</li>
+                    <li>Working contact form with validation</li>
+                    <li>Unstyled page elements for easy customization</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id
+                    reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia
+                    dolorum ducimus unde.</p>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid rounded full-width" src="/assets/img/6.jpeg" alt="" style"">
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Call to Action Section -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum
+                    deleniti
+                    beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-lg btn-secondary btn-block" href="#">contact us</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+</section>
+
+<!-- Footer -->
+<%- include('../components/footer') %>
+
+<!-- Bootstrap core JavaScript -->
+<script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

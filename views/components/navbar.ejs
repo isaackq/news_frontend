@@ -1,0 +1,55 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <!-- Add the Admin link to the left of the navigation bar -->
+    <% if (locals.guard === "admin") { %>
+    <a class="admin-button" href="/admin/home">Admin</a>
+    <% } %>
+
+    <a class="navbar-brand" href="#">news</a>
+    <button
+      class="navbar-toggler navbar-toggler-right"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/news">home</a>
+        </li>
+        <li class="nav-item">
+          <!-- <script>
+                        function renderPagee(path) {
+                            // Create a hidden form
+                            var form = document.createElement("form");
+                            form.setAttribute("method", "get"); // Use POST method
+                            form.setAttribute("action", path); // Specify the route to handle the rendering
+                            document.body.appendChild(form);
+                            form.submit();
+                        }
+                        // onclick="renderPagee('/cms/category/'+1)"
+                    </script> -->
+          <a class="nav-link" href="/category/1">local news</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/category/3">International news</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/category/2">sport news</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link logout-button" href="/logout">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

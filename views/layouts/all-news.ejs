@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= data.name %></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+  <%- include('../components/navbar') %>
+  
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3"><%= data.name %>
+        <small>Subheading</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Portfolio 1</li>
+      </ol>
+
+      <!-- <script>
+        function renderPage(i) {
+            // Create a hidden form
+            var form = document.createElement("form");
+            form.setAttribute("method", "get"); // Use POST method
+            form.setAttribute("action", "/cms/news/"+i); // Specify the route to handle the rendering
+
+            // Add any data you want to send as POST parameters
+            // For example, you can include a CSRF token or other data here
+
+            // Append the form to the document and submit it
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script> -->
+    
+      <!-- <% for(item of data) { %> -->
+      <!-- <% }%> -->
+
+      
+        <% data.reverse().forEach(function(item) { %>
+
+      <!-- news title One -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="newsdetailes.html">
+            <img class="img-fluid full-width h-200 rounded mb-3 mb-md-0" src="/assets/img1.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3><%= item.title %></h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+          <a class="btn btn-primary" href="/news/<%= item.id %>" >View news title
+          <!-- <a class="btn btn-primary"onclick="renderPage(<%= item.id %>)" >View news title -->
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+      <!-- /.row -->
+      <hr>
+      <% }); %>
+
+
+
+ 
+
+      <!-- Pagination -->
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="newsdetailes.html" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <%- include('../components/footer') %>
+    <!-- Bootstrap core JavaScript -->
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

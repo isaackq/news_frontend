@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+  <%- include('../../components/head')  %>  
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <%- include('../../components/navbarr')  %>  
+  <!-- /.navbar -->
+  <!-- Main Sidebar Container -->
+  <%- include('../../components/main-side-bar')  %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <%- include('../../components/Content-header')  %>
+
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+<!-- هادي هيا المساحة المتغيرة اما باقي الثوابت عملنا الها انكلود  -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Add User...</h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+          <form  method="post" enctype="application/x-www-form-urlencoded"  action="/news">
+            <div class="card-body">
+              <% if(locals.errors) { %> 
+                <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                  <ul>
+                    <!-- لوكال عشان نطلع من دائرة الانديفايند -->
+                  <% for(error of locals.errors) { %> 
+                  <li><%=error.msg %></li>
+                    <% }%>
+                  </ul>           
+                </div>
+                <% }%>
+                <!-- الشغل هادا نقلتو على واجهة العرض تبعت الاوول  -->
+                <% if(locals.message) { %> 
+                  <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5><i class="icon fas fa-check"></i> Alert!</h5>
+                    <!-- <ul>
+                    <% for(error of locals.message) { %> عليهم تعليق 
+                    <li><%=error %></li>
+                      <% }%>
+                    </ul> -->
+                    <%=locals.message %>
+                  </div>
+                  <% }%> 
+
+              <div class="form-group">
+                <label for="FirstNameInput">Title</label>
+                <input type="text" class="form-control" id="FirstNameInput" placeholder="Enter the title" name="title" value="<%= locals.old?.title%>">
+              </div>
+              <div class="form-group">
+                <label for="LastNameInput">Publication Date</label>
+                <input type="date" style=" width: 200px;
+      height: 30px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;" class="form-control" id="LastNameInput" placeholder="Enter Publication Date" name="PublicationDate" value="<%= locals.old?.PublicationDate %>" >
+              </div>           
+              <div class="form-group">
+                <label for="exampleInputEmail1">Content</label>
+                <textarea  class="form-control" style=" width: 500px;height: 300px; padding: 5px; border: 1px solid  #ccc; vertical-align: top; border-radius: 5px; background-color: #fff;"  placeholder="Enter the content" name="Content" value="<%= locals.old?.Content %>" > </textarea>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">SideWidget</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter the SideWidget" name="SideWidget" value="<%= locals.old?.SideWidget %>">
+              </div>
+              
+              <div class="form-group">
+                <label for="exampleInputPassword1">Category_id</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio"  name="Category_id" value="1"
+                    <% if(locals.old?.Category_id==="2" ) { %>  
+                    checked
+                    <% } %>
+                    />
+                  <label class="form-check-label">local News</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="Category_id" value="2"
+                  <% if(locals.old?.Category_id==="2" ) { %>  
+                    checked
+                    <% } %>
+                  >
+                  <label class="form-check-label">sport News</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="Category_id" value="3"
+                  <% if(locals.old?.Category_id==="3" ) { %>  
+                    checked
+                    <% } %>
+                  >
+                  <label class="form-check-label">international News</label>
+                </div>
+                
+              </div>
+
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.card -->
+
+
+      </div>
+      <!--/.col (left) -->
+     
+
+
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</section>
+
+
+
+    <!-- blade yields and sections in laravel زي الوراثة في الاي جي اس يعني تعويض -->
+    
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+<!-- السايد بار مش لازمة  -->
+
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+   
+  <%- include('../../components/footerr')  %>
+  
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- Scripts -->
+
+<%- include('../../components/Scripts')  %>
+
+</body>
+</html>
