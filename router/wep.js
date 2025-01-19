@@ -198,13 +198,13 @@ router.post("/news", adminAcces, async (req, res, next) => {
     if (data.status === true) {
       // Success case
       // console.log("Success:", data.message);
-      res.with("message", data.message).redirect("/news/create");
+      res.with("message", "Created Successfully").redirect("/news/create");
     } else {
       // Error case: Display validation errors or other messages
       // console.log("Error:", data.message);
       res
         .with("old", req.body)
-        .with("errors", data.errors)
+        .with("errors", "error")
         .redirect("/news/create");
     }
   } catch (error) {
