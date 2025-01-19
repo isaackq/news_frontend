@@ -197,11 +197,11 @@ router.post("/news", adminAcces, async (req, res, next) => {
     const data = await response.json();
     if (data.status === true) {
       // Success case
-      console.log("Success:", data.message);
+      // console.log("Success:", data.message);
       res.with("message", data.message).redirect("/news/create");
     } else {
       // Error case: Display validation errors or other messages
-      console.log("Error:", data.message);
+      // console.log("Error:", data.message);
       res
         .with("old", req.body)
         .with("errors", data.errors)
