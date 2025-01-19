@@ -106,7 +106,7 @@ router.get("/:guard/login", guest, async (req, res) => {
 router.get("/:guard/SignUP", guest, async (req, res) => {
   req.session.guard = req.params.guard;
   console.log(req.session.guard);
-  const response = await fetch(`https://news-backend-hbbs.onrender.com/cms/user/SignUP`);
+  const response = await fetch(`https://news-backend-hbbs.onrender.com/cms/${req.params.guard}/SignUP`);
   const data = await response.json();
   console.log(data);
   res.render("layouts/auth/SignUp", { data }); // Pass the data to the EJS template
