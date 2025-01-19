@@ -117,7 +117,7 @@ router.get("/:guard/SignUP", guest, async (req, res) => {
       `https://news-backend-hbbs.onrender.com/cms/${req.params.guard}/SignUP`
     );
     const data = await response.json();
-    res.render("layouts/auth/login", { data }); // Pass the data to the EJS template
+    res.render("layouts/auth/SignUP", { data }); // Pass the data to the EJS template
   } catch (error) {
     res.status(500).send("Error fetching data from backend");
   }
