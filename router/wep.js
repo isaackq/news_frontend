@@ -30,7 +30,7 @@ const { adminAcces } = require("../middlewares/adminAcces");
 //   res.send(data);
 // });
 
-router.get("/admin/home", adminAcces, (req, res) => {
+router.get("/admin/home",authenticate, adminAcces, (req, res) => {
   res.render("layouts/parent");
 });
 
