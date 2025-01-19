@@ -165,7 +165,7 @@ router.get("/news", authenticate, async (req, res) => {
 });
 
 router.get("/news/create", adminAcces, (req, res) => {
-  res.render("layouts/news/create");
+  res.render("layouts/news/create",{title : "create news"});
 });
 
 router.get("/news/:id", authenticate, async (req, res) => {
