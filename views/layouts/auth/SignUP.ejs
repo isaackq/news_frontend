@@ -34,10 +34,15 @@
             <p class="login-box-msg">Register a new membership</p>
 
             <form action="/user" method="post">
-
               <%- include('../../components/errors') %>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="firstName" placeholder="First name" value="<%= locals.old?.firstName%>"/>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="firstName"
+                  placeholder="First name"
+                  value="<%= locals.old?.firstName%>"
+                />
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-user"></span>
@@ -45,7 +50,13 @@
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="lastName" placeholder="Last name" value="<%= locals.old?.lastName %>"/>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="lastName"
+                  placeholder="Last name"
+                  value="<%= locals.old?.lastName %>"
+                />
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-user"></span>
@@ -53,7 +64,13 @@
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="email" class="form-control"  name="email" placeholder="Email" value="<%= locals.old?.email %>" />
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  placeholder="Email"
+                  value="<%= locals.old?.email %>"
+                />
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-envelope"></span>
@@ -61,7 +78,12 @@
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="password" class="form-control" name="password"  placeholder="Password" />
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="Password"
+                />
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-lock"></span>
@@ -69,7 +91,12 @@
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="password" class="form-control" name="password_1" placeholder="Retype password"  />
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password_1"
+                  placeholder="Retype password"
+                />
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-lock"></span>
@@ -79,27 +106,27 @@
               <div class="form-group">
                 <label for="exampleInputPassword1">Gender</label>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio"  name="gender" value="M"
-                    <% if(locals.old?.gender==="M" ) { %>  
-                    checked
-                    <% } %>
-                    />
+                  <input class="form-check-input" type="radio" name="gender"
+                  value="M" <% if(locals.old?.gender==="M" ) { %> checked <% }
+                  %> />
                   <label class="form-check-label">Male</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gender" value="F"
-                  <% if(locals.old?.gender==="F" ) { %>  
-                    checked
-                    <% } %>
-                  >
+                  <input class="form-check-input" type="radio" name="gender"
+                  value="F" <% if(locals.old?.gender==="F" ) { %> checked <% }
+                  %> >
                   <label class="form-check-label">Female</label>
                 </div>
-                
               </div>
               <div class="row">
                 <div class="col-8">
                   <div class="icheck-primary">
-                    <input type="checkbox" id="agreeTerms"  name="terms" value="agree"/>
+                    <input
+                      type="checkbox"
+                      id="agreeTerms"
+                      name="terms"
+                      value="agree"
+                    />
                     <label for="agreeTerms">
                       I agree to the <a href="#">terms</a>
                     </label>
@@ -127,7 +154,7 @@
               </a>
             </div>
 
-            <a href="/cms/<%= locals.guard %>/login" class="text-center"
+            <a href="/<%= locals.guard %>/login" class="text-center"
               >I already have a membership</a
             >
           </div>
@@ -138,11 +165,11 @@
       <!-- /.register-box -->
 
       <!-- jQuery -->
-   <script src="/assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/assets/dist/js/adminlte.min.js"></script>
+      <script src="/assets/plugins/jquery/jquery.min.js"></script>
+      <!-- Bootstrap 4 -->
+      <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- AdminLTE App -->
+      <script src="/assets/dist/js/adminlte.min.js"></script>
     </body>
   </body>
 </html>

@@ -220,7 +220,7 @@ router.get("/user/create", adminAcces, (req, res) => {
   });
 });
 
-router.post("/user", adminAcces, async (req, res, next) => {
+router.post("/user", async (req, res, next) => {
   try {
     const response = await fetch("https://news-backend-hbbs.onrender.com/cms/user", {
       method: "POST",
