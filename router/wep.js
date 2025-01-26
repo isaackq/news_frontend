@@ -4,31 +4,6 @@ const { guest } = require("../middlewares/guest");
 const { authenticate } = require("../middlewares/authenticate");
 const { adminAcces } = require("../middlewares/adminAcces");
 
-// router.get("/set-session", async (req, res) => {
-//   const response = await fetch(`http://localhost:5000/cms/set-session`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     credentials: "include",
-//   });
-//   const data = await response.json();
-//   console.log("cxsssssssssssss", data);
-//   res.send(data);
-// });
-
-// router.get("/get-session", async (req, res) => {
-//   const response = await fetch(`http://localhost:5000/cms/get-session`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     credentials: "include",
-//   });
-//   const data = await response.json();
-//   console.log("cxsssssssssssss", data);
-//   res.send(data);
-// });
 
 router.get("/admin/home",authenticate, adminAcces, (req, res) => {
   res.render("layouts/parent");
@@ -90,7 +65,7 @@ router.get("/admin", adminAcces, async (req, res) => {
   }
 });
 
-router.get("/:guard/login", guest, async (req, res) => {
+router.get("/:guard/login", guest, async (req, res) => {//show login page
   req.session.guard = req.params.guard;
   try {
     const response = await fetch(
